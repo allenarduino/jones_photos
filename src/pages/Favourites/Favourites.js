@@ -3,6 +3,7 @@ import { FavouriteImageCard } from '../../components/FavouriteImageCard/Favourit
 import { GridWrapper, PageLabel } from './styles';
 import { fetchFromStorage } from '../../services/localStorageService';
 import { FavouritesContext } from '../../contexts/FavouriteContextProvider';
+import { Fade } from 'react-reveal';
 
 const Favourites = () => {
   const { favourite_state, favourite_dispatch } = React.useContext(FavouritesContext);
@@ -17,12 +18,14 @@ const Favourites = () => {
 
   return (
     <React.Fragment>
-      <PageLabel>Favourites</PageLabel>
-      <GridWrapper>
-        {favourite_state.favourites.map((img) => (
-          <FavouriteImageCard img_url={img.urls.raw} img={img} />
-        ))}
-      </GridWrapper>
+      <Fade bottom duration={900} distance="40px">
+        <PageLabel>Favourites</PageLabel>
+        <GridWrapper>
+          {favourite_state.favourites.map((img) => (
+            <FavouriteImageCard img_url={img.urls.raw} img={img} />
+          ))}
+        </GridWrapper>
+      </Fade>
     </React.Fragment>
   );
 };

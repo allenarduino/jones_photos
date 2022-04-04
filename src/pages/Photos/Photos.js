@@ -3,6 +3,7 @@ import { ImageCard } from '../../components/ImageCard/ImageCard';
 import { Constants } from '../../constants';
 import { PhotoContext } from '../../contexts/PhotoContextProvider';
 import { GridWrapper, PageLabel } from './styles';
+import { Fade } from 'react-reveal';
 
 const Photos = () => {
   const { photo_state, photo_dispatch } = React.useContext(PhotoContext);
@@ -26,12 +27,14 @@ const Photos = () => {
 
   return (
     <React.Fragment>
-      <PageLabel>Photos</PageLabel>
-      <GridWrapper>
-        {photo_state.photos.map((img) => (
-          <ImageCard img_url={img.urls.raw} img={img} />
-        ))}
-      </GridWrapper>
+      <Fade bottom duration={900} distance="40px">
+        <PageLabel>Photos</PageLabel>
+        <GridWrapper>
+          {photo_state.photos.map((img) => (
+            <ImageCard img_url={img.urls.raw} img={img} />
+          ))}
+        </GridWrapper>
+      </Fade>
     </React.Fragment>
   );
 };
