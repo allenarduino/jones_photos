@@ -3,7 +3,7 @@ export const addToStorage = (photo, photos) => {
     photos.push(photo);
     localStorage.setItem('favourites', JSON.stringify(photos));
   } else {
-    let photos = JSON.parse(localStorage.getItem('mycart'));
+    let photos = JSON.parse(localStorage.getItem('favourites'));
     photos.push(photo);
     localStorage.setItem('favourites', JSON.stringify(photos));
   }
