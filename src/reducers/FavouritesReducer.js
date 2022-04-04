@@ -5,11 +5,10 @@ export const favouritesReducer = (state, action) => {
         ...state,
         favourites: action.payload,
       };
-
-    case 'ADD_FAVOURITE':
+    case 'ADD_TO_FAVOURITES':
       return {
         ...state,
-        favourites: [action.payload, ...state.favourites],
+        favourites: [...state.favourites, action.payload],
       };
 
     case 'REMOVE_FROM_FAVOURITES':
