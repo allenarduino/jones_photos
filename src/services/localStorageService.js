@@ -5,6 +5,7 @@ export const addToStorage = (photo, photos) => {
   } else {
     let photos = JSON.parse(localStorage.getItem('favourites'));
     photos.push(photo);
+    localStorage.removeItem('favourites');
     localStorage.setItem('favourites', JSON.stringify(photos));
   }
 };
@@ -22,5 +23,19 @@ export const fetchFromStorage = () => {
   if (localStorage['favourites']) {
     let photos = JSON.parse(localStorage.getItem('favourites'));
     return photos;
+  }
+};
+
+export const checkItem = (id) => {
+  if (localStorage['favourites']) {
+    const favouriteItems = JSON.parse(localStorage.getItem('favourites'));
+    const exists = favouriteItems.find((item) => item.id === id);
+    if (exists) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
   }
 };
