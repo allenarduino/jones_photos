@@ -1,13 +1,14 @@
 import React from 'react';
-import { FavouritesContext } from '../../contexts/FavouriteContextProvider';
+import { FavouriteImageCard } from '../../components/FavouriteImageCard/FavouriteImageCard';
+import { GridWrapper } from './styles';
 import { fetchFromStorage } from '../../services/localStorageService';
+import { FavouritesContext } from '../../contexts/FavouriteContextProvider';
 
 const Favourites = () => {
   const { favourite_state, favourite_dispatch } = React.useContext(FavouritesContext);
-
   const fetchFavouritePhotos = () => {
     let favourites = fetchFromStorage();
-    favourite_dispatch({ action: 'FETCH_FAVOURITES', payload: favourites });
+    favourite_dispatch({ type: 'FETCH_FAVOURITES', payload: favourites });
   };
 
   React.useEffect(() => {
@@ -15,13 +16,13 @@ const Favourites = () => {
   }, []);
 
   return (
-    <>
-      {favourite_state.favourites.map((photo) => (
-        <div>
-          <img src={photo.urls.raw} />
-        </div>
-      ))}
-    </>
+    <React.Fragment>
+      <GridWrapper>
+        {favourite_state.favourites.map((img) => (
+          <FavouriteImageCard img_url={img.urls.raw} img={img} />
+        ))}
+      </GridWrapper>
+    </React.Fragment>
   );
 };
 

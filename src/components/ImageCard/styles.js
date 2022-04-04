@@ -6,6 +6,7 @@ export const CardWrapper = styled.div`
   border-radius: 10px;
   position: relative;
   margin: 0.2em;
+  padding: 0;
 
   @media (max-width: ${400}px) {
     height: 400px;
@@ -21,6 +22,7 @@ export const CardWrapper = styled.div`
 export const Img = styled.img`
   width: 100%;
   height: 100%;
+  filter: brightness(70%);
 `;
 
 export const AddText = styled.b`
@@ -31,6 +33,7 @@ export const IconWrapper = styled.div`
   position: absolute;
   color: #fff;
   bottom: 20px;
+  cursor: pointer;
   right: 10px;
   display: flex;
   flex-direction: column;
