@@ -23,6 +23,9 @@ export const fetchFromStorage = () => {
   if (localStorage['favourites']) {
     let photos = JSON.parse(localStorage.getItem('favourites'));
     return photos;
+  } else {
+    let arr = [];
+    return arr;
   }
 };
 
