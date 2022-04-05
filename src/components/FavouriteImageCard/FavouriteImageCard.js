@@ -16,7 +16,7 @@ export const FavouriteImageCard = ({ img_url, img }) => {
       <Img src={img_url} />
       <IconWrapper onClick={() => removeImage(img.id)}>
         <Icon.Trash size={25} color="red" style={{ marginRight: '50%' }} />
-        <AddText>Delete</AddText>
+        <AddText>Remove</AddText>
       </IconWrapper>
     </CardWrapper>
   );

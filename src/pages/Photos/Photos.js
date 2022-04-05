@@ -18,7 +18,8 @@ const Photos = () => {
       .then((res) => res.json())
       .then((data) => {
         photo_dispatch({ type: 'FETCH_PHOTOS', payload: data });
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   React.useEffect(() => {

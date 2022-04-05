@@ -11,8 +11,8 @@ export const ImageCard = ({ img_url, img }) => {
   const addToFavourites = (photo) => {
     favourite_dispatch({ type: 'ADD_TO_FAVOURITES', payload: photo });
     addToStorage(photo, favourite_state.favourites);
-    console.log(favourite_state.favourites);
   };
+
   return (
     <CardWrapper>
       <Img src={img_url} />

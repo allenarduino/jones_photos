@@ -22,3 +22,10 @@ export const PageLabel = styled.div`
   text-align: center;
   margin-top: 100px;
 `;
+
+export const Message = styled.div`
+  margin-top: 200px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+`;
